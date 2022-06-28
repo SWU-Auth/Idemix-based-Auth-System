@@ -1,0 +1,78 @@
+[2022-05-22 14:49:12.840] [exthost] [info] extension host started
+[2022-05-22 14:49:13.751] [exthost] [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication {"startup":false,"extensionId":{"value":"vscode.microsoft-authentication","_lower":"vscode.microsoft-authentication"},"activationEvent":"onAuthenticationRequest:microsoft"}
+[2022-05-22 14:49:13.751] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/microsoft-authentication/dist/extension.js
+[2022-05-22 14:49:13.837] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"extensionId":{"value":"vscode.debug-auto-launch","_lower":"vscode.debug-auto-launch"},"activationEvent":"*"}
+[2022-05-22 14:49:13.837] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2022-05-22 14:49:13.839] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2022-05-22 14:49:13.839] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/git/dist/main
+[2022-05-22 14:49:14.427] [exthost] [info] ExtensionService#_doActivateExtension vscode.github {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2022-05-22 14:49:14.427] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/github/dist/extension.js
+[2022-05-22 14:49:14.506] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode.js-debug {"startup":false,"extensionId":{"value":"ms-vscode.js-debug","_lower":"ms-vscode.js-debug"},"activationEvent":"onCommand:extension.js-debug.clearAutoAttachVariables"}
+[2022-05-22 14:49:14.506] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/ms-vscode.js-debug/src/extension.js
+[2022-05-22 14:49:15.112] [exthost] [info] eager extensions activated
+[2022-05-22 14:49:15.127] [exthost] [info] extension host terminating: renderer closed the socket
+[2022-05-22 14:49:15.137] [exthost] [error] ProxyResolver#resolveProxy Canceled: Canceled
+	at Object.i [as canceled] (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:5:1157)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8146
+	at Array.forEach (<anonymous>)
+	at u.dispose (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8094)
+	at b.terminate (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:93:682)
+	at h (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:31703)
+	at Socket.<anonymous> (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:29468)
+	at Socket.emit (events.js:327:22)
+	at Pipe.<anonymous> (net.js:673:12) 
+[2022-05-22 14:49:15.141] [exthost] [error] ProxyResolver#resolveProxy Canceled: Canceled
+	at Object.i [as canceled] (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:5:1157)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8146
+	at Array.forEach (<anonymous>)
+	at u.dispose (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8094)
+	at b.terminate (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:93:682)
+	at h (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:31703)
+	at Socket.<anonymous> (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:29468)
+	at Socket.emit (events.js:327:22)
+	at Pipe.<anonymous> (net.js:673:12) 
+[2022-05-22 14:49:15.202] [exthost] [error] Activating extension vscode.emmet failed due to an error:
+[2022-05-22 14:49:15.202] [exthost] [error] Canceled: Canceled
+	at Object.i [as canceled] (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:5:1157)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8146
+	at Array.forEach (<anonymous>)
+	at u.dispose (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8094)
+	at b.terminate (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:93:682)
+	at h (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:31703)
+	at Socket.<anonymous> (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:29468)
+	at Socket.emit (events.js:327:22)
+	at Pipe.<anonymous> (net.js:673:12)
+[2022-05-22 14:49:15.202] [exthost] [error] Activating extension vscode.merge-conflict failed due to an error:
+[2022-05-22 14:49:15.202] [exthost] [error] Canceled: Canceled
+	at Object.i [as canceled] (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:5:1157)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8146
+	at Array.forEach (<anonymous>)
+	at u.dispose (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8094)
+	at b.terminate (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:93:682)
+	at h (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:31703)
+	at Socket.<anonymous> (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:29468)
+	at Socket.emit (events.js:327:22)
+	at Pipe.<anonymous> (net.js:673:12)
+[2022-05-22 14:49:15.202] [exthost] [error] Activating extension vscode.testing-editor-contributions failed due to an error:
+[2022-05-22 14:49:15.202] [exthost] [error] Canceled: Canceled
+	at Object.i [as canceled] (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:5:1157)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8146
+	at Array.forEach (<anonymous>)
+	at u.dispose (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8094)
+	at b.terminate (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:93:682)
+	at h (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:31703)
+	at Socket.<anonymous> (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:29468)
+	at Socket.emit (events.js:327:22)
+	at Pipe.<anonymous> (net.js:673:12)
+[2022-05-22 14:49:15.203] [exthost] [error] Activating extension ms-vscode.js-debug failed due to an error:
+[2022-05-22 14:49:15.203] [exthost] [error] Canceled: Canceled
+	at Object.i [as canceled] (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:5:1157)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8146
+	at Array.forEach (<anonymous>)
+	at u.dispose (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8094)
+	at b.terminate (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:93:682)
+	at h (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:31703)
+	at Socket.<anonymous> (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:29468)
+	at Socket.emit (events.js:327:22)
+	at Pipe.<anonymous> (net.js:673:12)
+[2022-05-22 14:49:16.138] [exthost] [info] exiting with code 0

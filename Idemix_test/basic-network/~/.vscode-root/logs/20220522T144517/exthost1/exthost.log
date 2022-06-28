@@ -1,0 +1,102 @@
+[2022-05-22 14:45:24.832] [exthost] [info] extension host started
+[2022-05-22 14:45:25.058] [exthost] [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication {"startup":false,"extensionId":{"value":"vscode.microsoft-authentication","_lower":"vscode.microsoft-authentication"},"activationEvent":"onAuthenticationRequest:microsoft"}
+[2022-05-22 14:45:25.058] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/microsoft-authentication/dist/extension.js
+[2022-05-22 14:45:25.270] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"extensionId":{"value":"vscode.debug-auto-launch","_lower":"vscode.debug-auto-launch"},"activationEvent":"*"}
+[2022-05-22 14:45:25.270] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2022-05-22 14:45:25.309] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2022-05-22 14:45:25.309] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/git/dist/main
+[2022-05-22 14:45:26.968] [exthost] [info] ExtensionService#_doActivateExtension vscode.github {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2022-05-22 14:45:26.968] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/github/dist/extension.js
+[2022-05-22 14:45:27.077] [exthost] [info] extension host terminating: renderer closed the socket
+[2022-05-22 14:45:27.164] [exthost] [error] ProxyResolver#resolveProxy Canceled: Canceled
+	at Object.i [as canceled] (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:5:1157)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8146
+	at Array.forEach (<anonymous>)
+	at u.dispose (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8094)
+	at b.terminate (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:93:682)
+	at h (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:31703)
+	at Socket.<anonymous> (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:29468)
+	at Socket.emit (events.js:327:22)
+	at Pipe.<anonymous> (net.js:673:12) 
+[2022-05-22 14:45:27.167] [exthost] [error] ProxyResolver#resolveProxy Canceled: Canceled
+	at Object.i [as canceled] (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:5:1157)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8146
+	at Array.forEach (<anonymous>)
+	at u.dispose (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8094)
+	at b.terminate (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:93:682)
+	at h (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:31703)
+	at Socket.<anonymous> (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:29468)
+	at Socket.emit (events.js:327:22)
+	at Pipe.<anonymous> (net.js:673:12) 
+[2022-05-22 14:45:27.298] [exthost] [error] Activating extension ms-vscode.js-debug failed due to an error:
+[2022-05-22 14:45:27.298] [exthost] [error] Canceled: Canceled
+	at Object.i [as canceled] (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:5:1157)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8146
+	at Array.forEach (<anonymous>)
+	at u.dispose (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8094)
+	at b.terminate (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:93:682)
+	at h (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:31703)
+	at Socket.<anonymous> (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:29468)
+	at Socket.emit (events.js:327:22)
+	at Pipe.<anonymous> (net.js:673:12)
+[2022-05-22 14:45:27.298] [exthost] [error] Activating extension vscode.github failed due to an error:
+[2022-05-22 14:45:27.298] [exthost] [error] Canceled: Canceled
+	at Object.i [as canceled] (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:5:1157)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8146
+	at Array.forEach (<anonymous>)
+	at u.dispose (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:8094)
+	at b.terminate (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:93:682)
+	at h (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:31703)
+	at Socket.<anonymous> (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:103:29468)
+	at Socket.emit (events.js:327:22)
+	at Pipe.<anonymous> (net.js:673:12)
+[2022-05-22 14:45:27.305] [exthost] [info] eager extensions activated
+[2022-05-22 14:45:27.305] [exthost] [error] Activating extension vscode.emmet failed due to an error:
+[2022-05-22 14:45:27.305] [exthost] [error] Canceled: Canceled
+	at Object.i [as canceled] (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:5:1157)
+	at u._remoteCall (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:12817)
+	at Proxy._.<computed>.D.charCodeAt._.<computed> (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:9349)
+	at c._activateExtension (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:11613)
+	at Object.actualActivateExtension (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:9202)
+	at d._activateExtension (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:84:97724)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:84:97406
+	at Array.map (<anonymous>)
+	at d._activateExtensions (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:84:97394)
+	at d.activateById (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:84:95024)
+	at c._activateById (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:10204)
+	at c._activateOneStartupFinished (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:15096)
+	at c._activateAllStartupFinished (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:15467)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:15956
+[2022-05-22 14:45:27.306] [exthost] [error] Activating extension vscode.merge-conflict failed due to an error:
+[2022-05-22 14:45:27.306] [exthost] [error] Canceled: Canceled
+	at Object.i [as canceled] (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:5:1157)
+	at u._remoteCall (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:12817)
+	at Proxy._.<computed>.D.charCodeAt._.<computed> (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:9349)
+	at c._activateExtension (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:11613)
+	at Object.actualActivateExtension (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:9202)
+	at d._activateExtension (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:84:97724)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:84:97406
+	at Array.map (<anonymous>)
+	at d._activateExtensions (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:84:97394)
+	at d.activateById (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:84:95024)
+	at c._activateById (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:10204)
+	at c._activateOneStartupFinished (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:15096)
+	at c._activateAllStartupFinished (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:15467)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:15956
+[2022-05-22 14:45:27.306] [exthost] [error] Activating extension vscode.testing-editor-contributions failed due to an error:
+[2022-05-22 14:45:27.306] [exthost] [error] Canceled: Canceled
+	at Object.i [as canceled] (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:5:1157)
+	at u._remoteCall (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:12817)
+	at Proxy._.<computed>.D.charCodeAt._.<computed> (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:88:9349)
+	at c._activateExtension (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:11613)
+	at Object.actualActivateExtension (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:9202)
+	at d._activateExtension (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:84:97724)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:84:97406
+	at Array.map (<anonymous>)
+	at d._activateExtensions (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:84:97394)
+	at d.activateById (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:84:95024)
+	at c._activateById (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:10204)
+	at c._activateOneStartupFinished (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:15096)
+	at c._activateAllStartupFinished (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:15467)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:89:15956
+[2022-05-22 14:45:28.080] [exthost] [info] exiting with code 0

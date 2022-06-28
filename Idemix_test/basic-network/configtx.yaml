@@ -1,0 +1,98 @@
+Organizations:
+
+    - &OrdererOrg
+        Name: OrdererOrg
+        ID: OrdererMSP
+        MSPDir: crypto-config/ordererOrganizations/swu.com/msp
+
+    - &WorkerOrg
+        Name: WorkerMSP
+        ID: WorkerMSP
+        MSPDir: crypto-config/peerOrganizations/worker.swu.com/msp
+        AnchorPeers:
+            - Host: peer0.worker.swu.com
+              Port: 7051
+
+    - &CustomerOrg
+        Name: CustomerMSP
+        ID: CustomerMSP
+        MSPDir: crypto-config/peerOrganizations/customer.swu.com/msp
+        AnchorPeers:
+            - Host: peer0.customer.swu.com
+              Port: 8051
+
+    - &WorkerIdemix
+        name: idemixMSP1
+        id: idemixMSPID1
+        msptype: idemix
+        mspdir: crypto-config/peerOrganizations/org3.swu.com
+
+    - &CustomerIdemix
+        name: idemixMSP2
+        id: idemixMSPID2
+        msptype: idemix
+        mspdir: crypto-config/peerOrganizations/org4.swu.com
+
+Capabilities:
+    Channel: &ChannelCapabilities
+        V1_3: true
+
+    Orderer: &OrdererCapabilities
+        V1_1: true
+
+    Application: &ApplicationCapabilities
+        V1_3: true
+        V1_2: false
+        V1_1: false
+
+Application: &ApplicationDefaults
+    Organizations:
+    Capabilities:
+        <<: *ApplicationCapabilities
+
+Orderer: &OrdererDefaults
+    OrdererType: solo
+    Addresses:
+        - orderer.swu.com:7050
+    BatchTimeout: 2s
+    BatchSize:
+        MaxMessageCount: 10
+        AbsoluteMaxBytes: 99 MB
+        PreferredMaxBytes: 512 KB
+    Organizations:
+
+Profiles:
+    OrdererGenesis:
+        Capabilities:
+            <<: *ChannelCapabilities
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *OrdererOrg
+            Capabilities:
+                <<: *OrdererCapabilities
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                    - *WorkerOrg
+                    - *CustomerOrg
+                    - *WorkerIdemix
+                    - *CustomerIdemix
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *OrdererOrg
+            Capabilities:
+                <<: *ApplicationCapabilities
+
+    TwoOrgsChannel:
+        Consortium: SampleConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *WorkerOrg
+                - *CustomerOrg
+                - *WorkerIdemix
+                - *CustomerIdemix
+            Capabilities:
+                <<: *ApplicationCapabilities

@@ -1,0 +1,3 @@
+[2022-05-22 14:49:14.860] [renderer1] [error] Error: Unable to resolve non-existing file 'vscode-userdata:/root/go/src/Idemix_test/basic-network/~/.vscode-root/Backups/1653198548312/file/-586eadc6'
+    at li.resolve (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:634:12167)
+    at async Object.factory (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2352:6491)

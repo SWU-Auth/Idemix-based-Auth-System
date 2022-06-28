@@ -1,0 +1,23 @@
+version: '2'
+
+networks:                                      
+  swu:
+
+services:
+    ca.worker.swu.com:
+        image: hyperledger/fabric-ca:1.4
+        environment:
+          - FABRIC_CA_SERVER_HOME=/etc/hyperledger/fabric-ca-server
+          - FABRIC_CA_SERVER_CA_NAME=ca.worker.swu.com
+          - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.worker.swu.com-cert.pem
+          - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/696e0654cd55508f9719caa6ae951fda180acb01a9eb9e57d8a729afc32dc3ac_sk
+        ports:
+          - "7054:7054"
+        command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+        volumes:
+          - ./fabric-ca-server-config.yaml:/etc/hyperledger/fabric-ca-server/fabric-ca-server-config.yaml
+          - ./crypto-config/peerOrganizations/worker.swu.com/ca/:/etc/hyperledger/fabric-ca-server-config:ro
+          - ./crypto-config/peerOrganizations/org3.swu.com/msp/:/tmp/msp:ro
+        container_name: ca.worker.swu.com
+        networks:
+          - swu

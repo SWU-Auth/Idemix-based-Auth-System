@@ -1,0 +1,19 @@
+OrdererOrgs:
+  - Name: Orderer
+    Domain: swu.com
+    Specs:
+      - Hostname: orderer
+
+PeerOrgs:
+  - Name: Worker
+    Domain: worker.swu.com
+    Template:
+      Count: 2
+    Users:
+      Count: 1
+  - Name: Customer                          
+    Domain: customer.swu.com
+    Template:
+      Count: 2
+    Users:
+      Count: 1

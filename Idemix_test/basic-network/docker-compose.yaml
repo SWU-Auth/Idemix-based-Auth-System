@@ -1,0 +1,193 @@
+version: '2'
+
+networks:                                      
+  swu:
+
+services:
+  ca.worker.swu.com:
+    image: hyperledger/fabric-ca
+    environment:
+      - FABRIC_CA_SERVER_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca.worker.swu.com
+      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.worker.swu.com-cert.pem
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/696e0654cd55508f9719caa6ae951fda180acb01a9eb9e57d8a729afc32dc3ac_sk
+      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledgercd/fabric-ca-server-config/ca.worker.swu.com-cert.pem
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/696e0654cd55508f9719caa6ae951fda180acb01a9eb9e57d8a729afc32dc3ac_sk
+    ports:
+      - "7054:7054"
+    command: sh -c 'cp -R /tmp/msp /etc/hyperledger/fabric-ca-server; mv /etc/hyperledger/fabric-ca-server/msp/*PublicKey /etc/hyperledger/fabric-ca-server; fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+      - ./crypto-config/peerOrganizations/worker.swu.com/ca/:/etc/hyperledger/fabric-ca-server-config:ro
+      - ./crypto-config/peerOrganizations/org3.swu.com/msp/:/tmp/msp:ro
+    container_name: ca.worker.swu.com
+
+  ca.customer.swu.com:
+    image: hyperledger/fabric-ca
+    environment:
+      - FABRIC_CA_SERVER_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca.customer.swu.com
+      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.customer.swu.com-cert.pem
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/54baa4b2111df25c42aa086dc0b3732fccf5574eb9e84c1d4275775fed811704_sk
+      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.customer.swu.com-cert.pem
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/54baa4b2111df25c42aa086dc0b3732fccf5574eb9e84c1d4275775fed811704_sk
+    ports:
+      - "8054:7054"
+    command: sh -c 'cp -R /tmp/msp /etc/hyperledger/fabric-ca-server; mv /etc/hyperledger/fabric-ca-server/msp/*PublicKey /etc/hyperledger/fabric-ca-server; fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+      - ./crypto-config/peerOrganizations/customer.swu.com/ca/:/etc/hyperledger/fabric-ca-server-config:ro
+      - ./crypto-config/peerOrganizations/org4.swu.com/msp/:/tmp/msp:ro
+    container_name: ca.customer.swu.com
+
+  orderer.swu.com:
+    container_name: orderer.swu.com
+    image: hyperledger/fabric-orderer:1.4.3
+    environment:
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/configtx/genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/msp/orderer/msp
+    working_dir: /opt/gopath/src/github.com/hyperledger/orderer
+    command: orderer
+    volumes:
+      - ./config/:/etc/hyperledger/configtx
+      - ./crypto-config/ordererOrganizations/swu.com/orderers/orderer.swu.com/:/etc/hyperledger/msp/orderer
+    ports:
+      - 7050:7050
+    networks:
+      - swu
+
+  peer0.worker.swu.com:
+    container_name: peer0.worker.swu.com
+    image: hyperledger/fabric-peer:1.4.3
+    environment:
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_PEER_ID=peer0.worker.swu.com
+      - CORE_LOGGING_PEER=debug
+      - CORE_CHAINCODE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_LOCALMSPID=WorkerMSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
+      - CORE_PEER_ADDRESS=peer0.worker.swu.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.worker.swu.com:7051
+      - CORE_PEER_GOSSIP_ENDPOINT=peer0.worker.swu.com:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.worker.swu.com:7051
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=net_swu
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: peer node start
+    volumes:
+      - /var/run/:/host/var/run/
+      - ./crypto-config/peerOrganizations/worker.swu.com/peers/peer0.worker.swu.com/msp:/etc/hyperledger/msp/peer
+      - ./crypto-config/peerOrganizations/worker.swu.com/users:/etc/hyperledger/msp/users
+      - ./config:/etc/hyperledger/configtx
+    ports:
+      - 7051:7051
+      - 7053:7053
+    depends_on:
+      - orderer.swu.com
+    networks:
+      - swu
+
+  peer1.worker.swu.com:
+    container_name: peer1.worker.swu.com
+    image: hyperledger/fabric-peer:1.4.3
+    environment:
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_PEER_ID=peer1.worker.swu.com
+      - CORE_LOGGING_PEER=debug
+      - CORE_CHAINCODE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_LOCALMSPID=WorkerMSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
+      - CORE_PEER_ADDRESS=peer1.worker.swu.com:7051
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=net_swu
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: peer node start
+    volumes:
+      - /var/run/:/host/var/run/
+      - ./crypto-config/peerOrganizations/worker.swu.com/peers/peer1.worker.swu.com/msp:/etc/hyperledger/msp/peer
+      - ./crypto-config/peerOrganizations/worker.swu.com/users:/etc/hyperledger/msp/users
+      - ./config:/etc/hyperledger/configtx
+    ports:
+      - 6051:7051
+      - 6053:7053
+    depends_on:
+      - orderer.swu.com
+    networks:
+      - swu
+
+  peer0.customer.swu.com:
+    container_name: peer0.customer.swu.com
+    image: hyperledger/fabric-peer:1.4.3
+    environment:
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_PEER_ID=peer0.customer.swu.com
+      - CORE_LOGGING_PEER=debug
+      - CORE_CHAINCODE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_LOCALMSPID=CustomerMSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
+      - CORE_PEER_ADDRESS=peer0.customer.swu.com:7051
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=net_swu
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: peer node start
+    volumes:
+      - /var/run/:/host/var/run/
+      - ./crypto-config/peerOrganizations/customer.swu.com/peers/peer0.customer.swu.com/msp:/etc/hyperledger/msp/peer
+      - ./crypto-config/peerOrganizations/customer.swu.com/users:/etc/hyperledger/msp/users
+      - ./config:/etc/hyperledger/configtx
+    ports:
+      - 9051:7051
+      - 9053:7053
+    depends_on:
+      - orderer.swu.com
+    networks:
+      - swu
+
+  peer1.customer.swu.com:
+    container_name: peer1.customer.swu.com
+    image: hyperledger/fabric-peer:1.4.3
+    environment:
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_PEER_ID=peer1.customer.swu.com
+      - CORE_LOGGING_PEER=debug
+      - CORE_CHAINCODE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_LOCALMSPID=CustomerMSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
+      - CORE_PEER_ADDRESS=peer1.customer.swu.com:7051
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=net_swu
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: peer node start
+    volumes:
+      - /var/run/:/host/var/run/
+      - ./crypto-config/peerOrganizations/customer.swu.com/peers/peer1.customer.swu.com/msp:/etc/hyperledger/msp/peer
+      - ./crypto-config/peerOrganizations/customer.swu.com/users:/etc/hyperledger/msp/users
+      - ./config:/etc/hyperledger/configtx
+    ports:
+      - 10051:7051
+      - 10053:7053
+    depends_on:
+      - orderer.swu.com
+    networks:
+      - swu
+
+  cli:                                    
+    container_name: cli
+    image: hyperledger/fabric-tools
+    tty: true
+    environment:
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - FABRIC_LOGGING_SPEC=INFO
+      - CORE_PEER_ID=cli
+      - CORE_PEER_ADDRESS=peer0.worker.swu.com:7051
+      - CORE_PEER_LOCALMSPID=WorkerMSP
+      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/worker.swu.com/users/Admin@worker.swu.com/msp
+      - CORE_CHAINCODE_KEEPALIVE=10
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: /bin/bash
+    volumes:
+      - /var/run/:/host/var/run/
+      - ./../chaincode/:/opt/gopath/src/chaincode/
+      - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
+      - ./config:/etc/hyperledger/configtx
+    networks:
+      - swu
